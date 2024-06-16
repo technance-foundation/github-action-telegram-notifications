@@ -2,17 +2,16 @@
 
 ## Overview
 
-This GitHub action can be used in any repository to send notifications to a Telegram chat.
-The following PR events will trigger a notification:
-- PR approval
-- PR changes requested
-- PR review commented
-- PR opened (in draft or non-draft)
-- PR is set as ready for review
+This GitHub action can be used in any repository to send notifications to a Telegram chat. The following pull request events will trigger a notification:
+- Pull request approved
+- Changes requested on a pull request
+- Comment added to a pull request review
+- Pull request opened (in draft or non-draft state)
+- Pull request marked as ready for review
 
 ## Example
 
-Create the workflow in `.github/workflows` in a reposistory to make use of this action:
+Create the workflow in the `.github/workflows` directory of a repository to use this action:
 
 ```yml
 # telegram-notifications.yml
