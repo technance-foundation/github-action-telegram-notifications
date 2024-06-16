@@ -42,7 +42,7 @@ runs:
               disable_web_page_preview: true
 
         - name: Commented
-          if: github.event.action == 'commented'
+          if: github.event.review.state == 'commented'
           uses: appleboy/telegram-action@master
           with:
               to: ${{ inputs.to }}
@@ -55,7 +55,7 @@ runs:
               disable_web_page_preview: true
 
         - name: Approved
-          if: github.event.action == 'approved'
+          if: github.event.review.state == 'approved'
           uses: appleboy/telegram-action@master
           with:
               to: ${{ inputs.to }}
