@@ -1,5 +1,5 @@
 name: "Telegram notifications"
-description: "Sends notifications on opening/reviewing PRs to Telegram"
+description: "GitHub Action to send Telegram notifications for pull request events"
 
 inputs:
     to:
