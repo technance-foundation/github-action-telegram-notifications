@@ -1,0 +1,29 @@
+name: "Telegram notifications"
+description: "Sends notifications on opening/reviewing PRs to Telegram"
+
+inputs:
+    to:
+        description: "Telegram chat ID to send notifications"
+        default: ""
+    token:
+        description: "Telegram bot token"
+        default: ""
+
+runs:
+    using: composite
+    steps:
+        - uses: actions/checkout@v2
+
+        - name: Telegram Notify
+          if: github.event.action == 'opened'
+          uses: appleboy/telegram-action@master
+          with:
+              to: ${{ inputs.to }}
+              token: ${{ inputs.token }}
+              message: |
+                  <b>${{ github.event.pull_request.draft && '✏️ Draft' || '📌' }} PR submitted at ${{ github.event.repository.name }}</b>            
+
+                  <i><a href="https://github.com/${{ github.actor }}">${{ github.actor }}</a> ${{ github.event.action }}${{ github.event.pull_request.draft && ' draft ' || ' ' }}PR#${{ github.event.number }}</i>
+                  <a href="${{ github.event.pull_request.html_url }}">Click here to view → ${{ github.event.pull_request.title }}</a>
+              format: html
+              disable_web_page_preview: true
