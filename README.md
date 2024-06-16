@@ -1,4 +1,4 @@
-# Telegram Notifications Integration GH Action
+# Telegram Notifications GH Action
 
 ## Overview
 
